@@ -1,0 +1,42 @@
+{
+  "name": "@logicalhq/commitlint-config",
+  "version": "1.0.0",
+  "author": "Logical <hi@logical.work>",
+  "license": "MIT",
+  "description": "The shareable commitlint config we use at Logical.",
+  "files": [
+    "index.js",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/logicalhq/commitlint-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/logicalhq/commitlint-config/issues"
+  },
+  "homepage": "https://github.com/logicalhq/commitlint-config#readme",
+  "keywords": [
+    "commintlint-config"
+  ],
+  "scripts": {
+    "fmt": "prettier --write \"./**/*.{js,json,md}\"",
+    "fmt:check": "prettier --list-different \"./**/*.{js,json,md}\"",
+    "precommit": "yarn lint-staged",
+    "prepush": "yarn fmt:check",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/lint": "^8.3.5",
+    "husky": "^4.2.5",
+    "jest": "^25.3.0",
+    "lint-staged": "^10.1.5",
+    "prettier": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}

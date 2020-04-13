@@ -1,0 +1,81 @@
+version: 2.1
+
+defaults: &defaults
+  working_directory: ~/commintlint-config
+  docker:
+    - image: circleci/node:12-buster
+
+install: &install
+  <<: *defaults
+  steps:
+    - checkout
+    - restore_cache:
+        keys:
+          - v1-commintlint-config-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - v1-commintlint-config-{{ arch }}-{{ .Branch }}
+    - run:
+        name: Installing Dependencies
+        command: yarn --frozen-lockfile
+    - save_cache:
+        paths:
+          - ./node_modules
+          - ~/.cache
+        key: v1-commintlint-config-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+    - persist_to_workspace:
+        root: ~/
+        paths:
+          - commintlint-config
+          - .cache
+
+lint: &lint
+  <<: *defaults
+  steps:
+    - attach_workspace:
+        at: ~/
+    - run:
+        name: Execute Linters and Scanners
+        command: |
+          npx audit-ci
+          yarn fmt:check
+    - store_test_results:
+        path: test-results
+    - store_artifacts:
+        path: test-results
+
+unit: &unit
+  <<: *defaults
+  steps:
+    - attach_workspace:
+        at: ~/
+    - run:
+        name: Running Unit Tests
+        command: |
+          mkdir -pv test-results/jest
+          yarn test --ci --maxWorkers=2 --reporters="default" --reporters="jest-junit"
+        environment:
+          JEST_JUNIT_OUTPUT_DIR: test-results/jest
+          JEST_JUNIT_OUTPUT_NAME: results.xml
+    - store_test_results:
+        path: test-results
+    - store_artifacts:
+        path: test-results
+
+jobs:
+  install:
+    <<: *install
+  lint:
+    <<: *lint
+  unit:
+    <<: *unit
+
+workflows:
+  version: 2
+  commintlint-config:
+    jobs:
+      - install
+      - lint:
+          requires:
+            - install
+      - unit:
+          requires:
+            - install
