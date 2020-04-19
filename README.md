@@ -4,6 +4,6 @@
 
 <hr>
 
-# 📓@logicalhq/commitlint
+# 📓@logicalhq/commitlint-config
 
 The shareable commitlint config we use at [Logical](https://github.com/logicalhq).

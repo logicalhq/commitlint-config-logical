@@ -10,12 +10,10 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo "Releasing $VERSION ..."
-  VERSION=$VERSION yarn build
-  git add -A --force
   git commit -m "[release] $VERSION."
   yarn version --new-version $VERSION --message "[release] $VERSION"
   git tag v$VERSION
   git push origin refs/tags/v$VERSION
   git push
-  yarn publish --new-version $VERSION --access restricted
+  yarn publish --new-version $VERSION
 fi
