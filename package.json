@@ -1,9 +1,12 @@
 {
   "name": "@logicalhq/commitlint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Logical <hi@logical.work>",
   "license": "MIT",
   "description": "The shareable commitlint config we use at Logical.",
+  "directories": {
+    "data": "data"
+  },
   "files": [
     "index.js",
     "LICENSE.md",
