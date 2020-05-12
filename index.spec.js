@@ -6,13 +6,13 @@ expect.extend({
   toBeValid(received) {
     return {
       pass: received.valid === true,
-      message: () => `expected commitlint to be valid`
+      message: () => 'expected commitlint to be valid'
     };
   },
   toBeInvalid(received) {
     return {
       pass: received.valid === false,
-      message: () => `expected commitlint to be invalid`
+      message: () => 'expected commitlint to be invalid'
     };
   },
   toRaise(received, code) {

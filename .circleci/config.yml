@@ -37,6 +37,7 @@ lint: &lint
         command: |
           npx audit-ci
           yarn fmt:check
+          yarn lint --format junit --output-file test-results/eslint/results.xml
     - store_test_results:
         path: test-results
     - store_artifacts:

@@ -24,6 +24,8 @@
   "scripts": {
     "fmt": "prettier --write \"./**/*.{js,json,md}\"",
     "fmt:check": "prettier --list-different \"./**/*.{js,json,md}\"",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "yarn lint --fix",
     "precommit": "yarn lint-staged",
     "prepush": "yarn fmt:check",
     "test": "jest",
@@ -32,6 +34,10 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/lint": "^8.3.5",
+    "@logicalhq/eslint-config-base": "^1.0.2",
+    "eslint": "^7.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.11.0",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "jest-junit": "^10.0.0",
