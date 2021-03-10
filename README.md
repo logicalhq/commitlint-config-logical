@@ -14,7 +14,7 @@
   </a>
   <img src="https://flat.badgen.net/npm/v/@logicalhq/commitlint-config" alt="Version"/>
   <a href="https://circleci.com/gh/logicalhq/commitlint-config">
-    <img src="https://flat.badgen.net/github/status/logicalhq/commitlint-config/master/ci/circleci" alt="CircleCI Status"/>
+    <img src="https://flat.badgen.net/github/status/logicalhq/commitlint-config/main/ci/circleci" alt="CircleCI Status"/>
   </a>
 </p>
 
