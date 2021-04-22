@@ -58,6 +58,7 @@ module.exports = {
 ```bash
 git commit -m ":tada: Initial commit." # passes
 git commit -m ":sparkles:(ci) Set-up GitHub actions." # passes
+git commit -m ":bento: Fix assets (logo). [#123]" # passes
 git commit -m "Initial commit." # fails: no commit type.
 git commit -m ":tada: Initial commit" # fails: no full-stop.
 git commit -m ":unkown: Initial commit." # fails: that gitmoji doesn't exists.
