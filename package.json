@@ -1,7 +1,7 @@
 {
   "name": "@logicalhq/commitlint-config",
   "version": "1.2.0",
-  "author": "Logical <hi@logical.work>",
+  "author": "Logical <foss@logical.work>",
   "license": "MIT",
   "description": "The shareable commitlint config we use at Logical.",
   "files": [
