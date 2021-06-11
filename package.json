@@ -51,6 +51,8 @@
   },
   "resolutions": {
     "**/lodash": "^4.17.19",
-    "**/dot-prop": "^5.2.0"
+    "**/dot-prop": "^5.2.0",
+    "**/trim-newlines": "^3.0.1",
+    "**/yargs-parser": "^13.1.2"
   }
 }
