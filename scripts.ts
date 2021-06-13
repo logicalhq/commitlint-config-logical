@@ -72,7 +72,7 @@ program.command('publish', 'Publishes the package.').action(async () => {
       '--new-version',
       cleanVersion,
       '--message',
-      `[release] ${cleanVersion}`
+      `:bookmark: [release] ${cleanVersion}.`
     ]
   }).status();
 
